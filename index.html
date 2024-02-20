@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome!</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #282c34; /* Cor de fundo mais escura para contraste */
+        color: #61dafb; /* Cor clara para o texto, similar ao tema do React */
+        font-family: Arial, sans-serif;
+        margin: 0; /* Remove a margem padrão */
+        transition: background-color 0.5s ease; /* Suaviza a transição da cor de fundo */
+      }
+      #helloWorld {
+        opacity: 0; /* Começa invisível */
+        font-size: 2rem;
+        cursor: pointer;
+        transition: opacity 2s ease, transform 1s ease; /* Suaviza a transição da opacidade e transformação */
+        transform: scale(0); /* Inicia o texto reduzido */
+      }
+    </style>
+  </head>
+  <body>
+    <p id="helloWorld">Bem-vindos ao IFRN</p>
+
+    <script>
+      document.body.addEventListener("click", function () {
+        const helloWorld = document.getElementById("helloWorld");
+        helloWorld.style.opacity = "1"; // Torna o texto visível
+        helloWorld.style.transform = "scale(1)"; // Retorna o texto ao tamanho normal
+
+        // Animação para aumentar o tamanho do texto
+        let fontSize = 16; // Tamanho inicial do texto em pixels
+        const growText = setInterval(function () {
+          if (fontSize >= 32) {
+            // Tamanho máximo do texto em pixels
+            clearInterval(growText);
+          } else {
+            fontSize++;
+            helloWorld.style.fontSize = `${fontSize}px`;
+          }
+        }, 50); // Velocidade da animação
+      });
+    </script>
+  </body>
+</html>
